@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import gsap, { Power3 } from 'gsap';
+import React, { useEffect, useRef } from 'react'
+import logo from './logo.svg'
+import './App.scss'
+import gsap, { Power3 } from 'gsap'
 
 function Basic() {
-  let logoItem = useRef<HTMLImageElement | null>(null);
-  let textItem = useRef<HTMLParagraphElement | null>(null);
+  const logoItem = useRef<HTMLImageElement | null>(null)
+  const textItem = useRef<HTMLParagraphElement | null>(null)
 
   useEffect(() => {
-    console.log(logoItem);
-    gsap.to(logoItem.current, { opacity: 1, duration: 3, y: -50, ease: Power3.easeOut });
-    gsap.to(textItem.current, { opacity: 1, delay: 0.2, y: -50, ease: Power3.easeOut });
-  }, []);
+    console.log(logoItem)
+    gsap.to(logoItem.current, { opacity: 1, duration: 3, y: -50, ease: Power3.easeOut })
+    gsap.to(textItem.current, { opacity: 1, delay: 0.2, y: -50, ease: Power3.easeOut })
+  }, [])
 
   return (
     <div className='App'>
@@ -23,7 +23,7 @@ function Basic() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default Basic;
+export default Basic

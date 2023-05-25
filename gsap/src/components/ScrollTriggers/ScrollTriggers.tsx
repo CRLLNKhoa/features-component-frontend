@@ -1,16 +1,16 @@
-import React, { useRef } from 'react';
-import './ScrollTriggers.scss';
-import { useEffect, useState } from 'react';
-import gsap, { Power2 } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import React, { useRef, useEffect, useState } from 'react'
+import './ScrollTriggers.scss'
 
-gsap.registerPlugin(ScrollTrigger);
+import gsap, { Power2 } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ScrollTriggers = () => {
-  const squareRef = useRef<HTMLDivElement | null>(null);
-  let tl = gsap.timeline();
+  const squareRef = useRef<HTMLDivElement | null>(null)
+  const tl = gsap.timeline()
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // gsap.to('.panel', {
       //   scrollTrigger: {
       //     // markers: true,
@@ -78,21 +78,21 @@ const ScrollTriggers = () => {
       //   duration: 3,
       //   delay: -6,
       // });
-    });
-    const spansElement = gsap.utils.toArray('span') as HTMLElement[];
+    })
+    const spansElement = gsap.utils.toArray('span') as HTMLElement[]
     spansElement.forEach((span) => {
       ScrollTrigger.create({
         trigger: span,
         start: 'top center',
         end: 'top 30%',
         onEnter: () => {
-          span.classList.add('span-active');
+          span.classList.add('span-active')
         },
-        toggleClass: 'span-active',
-      });
-    });
-    return () => ctx.revert();
-  }, [tl]);
+        toggleClass: 'span-active'
+      })
+    })
+    return () => ctx.revert()
+  }, [tl])
   // trigger span active
 
   return (
@@ -104,6 +104,10 @@ const ScrollTriggers = () => {
           <li>Projects</li>
         </ul>
       </nav>
+      <div className='hung'>
+        <p className='name'>namesnamesdadasdadas</p>
+        <p className='user hi'>namesnamesdadasdadas</p>
+      </div>
       <div className='panel'>
         <div className='square' ref={squareRef}></div>
         <div className='squareRed'></div>
@@ -251,7 +255,7 @@ const ScrollTriggers = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ScrollTriggers;
+export default ScrollTriggers

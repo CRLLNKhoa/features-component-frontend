@@ -1,3 +1,3 @@
-import ImageRevealEffect from './imageRevealEffect';
+import ImageRevealEffect from './imageRevealEffect'
 
-export default ImageRevealEffect;
+export default ImageRevealEffect

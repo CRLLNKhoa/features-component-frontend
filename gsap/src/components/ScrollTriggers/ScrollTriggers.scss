@@ -19,6 +19,23 @@ li {
   margin: 0 1rem;
   cursor: pointer;
 }
+.hung {
+  .name {
+    color: red;
+    &::before {
+      color: blue;
+      content: 'hidasd';
+    }
+  }
+  .user.hi {
+    color: blue;
+  }
+}
+// .hung {
+//   .name {
+//     color: red;
+//   }
+// }
 .panel {
   padding: 0px 10px;
   margin-top: 20px;

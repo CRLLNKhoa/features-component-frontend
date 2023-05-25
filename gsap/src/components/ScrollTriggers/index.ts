@@ -1,3 +1,3 @@
-import ScrollTriggers from './ScrollTriggers';
+import ScrollTriggers from './ScrollTriggers'
 
-export default ScrollTriggers;
+export default ScrollTriggers

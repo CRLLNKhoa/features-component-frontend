@@ -1,15 +1,15 @@
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useEffect, useState } from 'react';
-import '../Intersection/Intersection.scss';
-gsap.registerPlugin(ScrollTrigger);
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useEffect, useState } from 'react'
+import '../Intersection/Intersection.scss'
+gsap.registerPlugin(ScrollTrigger)
 
 export const Intersection = () => {
   // let sectionRef = useRef<HTMLDivElement | null>(null);
-  const [activeSection, setActiveSection] = useState('sectionFirst');
+  const [activeSection, setActiveSection] = useState('sectionFirst')
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.to('.square', {
         x: 500,
         duration: 3,
@@ -19,7 +19,7 @@ export const Intersection = () => {
           // end: 'center 30%',
           markers: true,
           toggleClass: 'red',
-          toggleActions: 'restart  pause  resume      reset',
+          toggleActions: 'restart  pause  resume      reset'
           // play pause resume reverse restart reset complete none
           //             onEnter   onLeave  onEnterBack  onLeaveBack
           // scrub: 1,
@@ -37,11 +37,11 @@ export const Intersection = () => {
           // onLeaveBack: () => {
           //   console.log('LeaveBack');
           // },
-        },
-      });
-    });
-    return () => ctx.revert();
-  }, []);
+        }
+      })
+    })
+    return () => ctx.revert()
+  }, [])
 
   return (
     <>
@@ -142,7 +142,7 @@ export const Intersection = () => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Intersection;
+export default Intersection

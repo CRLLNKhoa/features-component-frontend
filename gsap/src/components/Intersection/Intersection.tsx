@@ -1,6 +1,6 @@
-import gsap, { Power2 } from 'gsap';
-import { useEffect, useState } from 'react';
-import './Intersection.scss';
+import gsap, { Power2 } from 'gsap'
+import { useEffect, useState } from 'react'
+import './Intersection.scss'
 
 export const Intersection = () => {
   useEffect(() => {
@@ -8,46 +8,46 @@ export const Intersection = () => {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.8,
-    };
+      threshold: 0.8
+    }
     // defint the target for the observer
-    const target = document.querySelector('.content')?.querySelectorAll('section') as NodeListOf<HTMLElement>;
+    const target = document.querySelector('.content')?.querySelectorAll('section') as NodeListOf<HTMLElement>
 
     // define the observer
     const ActiveSection = (target: HTMLElement) => {
       const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          const tl = gsap.timeline();
-          const pElement = entry.target.querySelector('p');
+          const tl = gsap.timeline()
+          const pElement = entry.target.querySelector('p')
           tl.fromTo(
             pElement,
             {
               opacity: 0,
-              y: 20,
+              y: 20
             },
             {
               opacity: 1,
               y: 0,
               duration: 2,
-              ease: Power2.easeOut,
+              ease: Power2.easeOut
             }
-          );
+          )
 
           if (entry.isIntersecting) {
-            console.log(entry.target.className);
-            tl.play();
+            console.log(entry.target.className)
+            tl.play()
           } else {
-            tl.reverse(0);
+            tl.reverse(0)
           }
-        });
-      }, options);
-      sectionObserver.observe(target);
-    };
+        })
+      }, options)
+      sectionObserver.observe(target)
+    }
     // loop through the sections and observe each one
     target.forEach((section) => {
-      ActiveSection(section);
-    });
-  }, []);
+      ActiveSection(section)
+    })
+  }, [])
 
   return (
     <>
@@ -145,7 +145,7 @@ export const Intersection = () => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Intersection;
+export default Intersection

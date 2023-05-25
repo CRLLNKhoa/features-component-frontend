@@ -1,3 +1,3 @@
-import Intersection from './Intersection';
+import Intersection from './Intersection'
 
-export default Intersection;
+export default Intersection
