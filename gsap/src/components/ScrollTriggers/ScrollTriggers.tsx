@@ -11,17 +11,17 @@ const ScrollTriggers = () => {
   const tl = gsap.timeline()
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // gsap.to('.panel', {
-      //   scrollTrigger: {
-      //     // markers: true,
-      //     trigger: '.panel',
-      //     start: 'top 6%',
-      //     toggleClass: {
-      //       targets: 'nav',
-      //       className: 'nav-active',
-      //     },
-      //   },
-      // });
+      gsap.to('.panel', {
+        scrollTrigger: {
+          markers: true,
+          trigger: '.panel',
+          start: 'top 6%',
+          toggleClass: {
+            targets: 'nav',
+            className: 'nav-active'
+          }
+        }
+      })
       // USE SCROLLTRIGGER TO ANIMATE THE SQUARE
       // gsap.fromTo(
       //   '.square',
@@ -79,16 +79,42 @@ const ScrollTriggers = () => {
       //   delay: -6,
       // });
     })
+    tl.to('.square', {
+      x: 500,
+      duration: 5,
+      rotate: 360,
+      scrollTrigger: {
+        trigger: '.square',
+        start: 'top center',
+        end: 'bottom 30%',
+        markers: true,
+        scrub: true,
+        toggleActions: 'restart pause resume reverse'
+      }
+    })
+
     const spansElement = gsap.utils.toArray('span') as HTMLElement[]
     spansElement.forEach((span) => {
+      console.log('span', span)
+      gsap.set(span, {
+        color: 'red',
+        height: '30px'
+      })
       ScrollTrigger.create({
         trigger: span,
-        start: 'top center',
-        end: 'top 30%',
+        start: 'bottom center',
+        end: 'bottom 30%',
+        markers: true,
+        scrub: true,
         onEnter: () => {
           span.classList.add('span-active')
         },
-        toggleClass: 'span-active'
+        onLeave: () => {
+          span.classList.remove('span-active')
+        },
+        onEnterBack: () => {
+          span.classList.add('span-active')
+        }
       })
     })
     return () => ctx.revert()
@@ -109,7 +135,6 @@ const ScrollTriggers = () => {
         <p className='user hi'>namesnamesdadasdadas</p>
       </div>
       <div className='panel'>
-        <div className='square' ref={squareRef}></div>
         <div className='squareRed'></div>
         <p>
           lobortis. Enim sit amet venenatis urna cursus eget. Tellus id interdum velit laoreet id. Ac odio tempor orci
@@ -144,6 +169,7 @@ const ScrollTriggers = () => {
           dis. Massa id neque aliquam vestibulum. Nibh praesent tristique magna sit. Auctor eu augue ut lectus arcu
           bibendum at varius. Nam aliquam sem et tortor consequat id. Nunc mi ipsum faucibus vitae aliquet nec. Eu
           consequat ac felis donec et. Vivamus arcu felis bibendum ut tristique.
+          <div className='square' ref={squareRef}></div>
           <span>Nunc mi ipsum faucibus vitae aliquet nec. Eu consequat ac</span>
           Egestas diam in arcu cursus euismod quis viverra nibh. Donec ac odio tempor orci dapibus ultrices in iaculis.
           Enim eu turpis egestas pretium. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed. Eget nulla
